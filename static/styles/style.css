@@ -1,0 +1,453 @@
+.name {
+    text-align: center;
+    font-size: 30px;
+    font-style: italic;
+}
+
+.signupdiv {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-end;
+    justify-content: space-between;
+    align-items: baseline;
+    margin: auto;
+}
+
+.acc {
+    align-content: center;
+}
+
+.ml45 {
+    margin-left: 45px;
+}
+
+.topnav {
+    margin: auto;
+    overflow: hidden;
+    background-color: darkcyan;
+    width: 75%;
+}
+
+.signUplogin {
+    padding: 10px;
+    width: 29%;
+    margin: auto
+}
+
+#slider {
+    overflow: hidden;
+    background-color: yellow;
+    text-align: center;
+    margin: auto;
+}
+
+.heading {
+    text-align: center;
+    font-family: fantasy;
+    font-size: 77px;
+}
+
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.topnav a.active {
+    background-color: green;
+    color: white;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.form-group {
+    /* margin-bottom: 15px; */
+    padding: 10px;
+    width: 50%;
+}
+
+.photo {
+    width: 50%;
+    margin: auto
+}
+
+.centerdiv {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    text-align: center;
+}
+
+.title {
+    font-size: large;
+    font: bold;
+}
+
+.photocontainer {
+    display: flex;
+    flex-direction: row;
+    height: 500px;
+    justify-content: center;
+    background-color: aliceblue;
+    margin-top: 15px;
+}
+
+.containerform {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+    box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+    -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+}
+
+.btn-block {
+    display: block;
+    width: 15%;
+}
+
+.btn {
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.btn-lg {
+    padding: 10px 16px;
+    font-size: 18px;
+    line-height: 1.3333333;
+    border-radius: 6px;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+}
+
+#uderemove {
+    text-decoration: none;
+}
+
+.email {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.flex-item {
+    /* margin: 10px; */
+    width: 14.2%;
+    text-align: center;
+    line-height: 75px;
+    text-decoration: none;
+    font-size: 22px;
+}
+
+.marginauto {
+    margin: auto;
+}
+
+.ml20px {
+    margin-left: 20px;
+}
+
+.m10px {
+    margin: 10px;
+}
+
+@media(max-width:800px) {
+    containerheader {
+        flex-direction: row;
+    }
+}
+
+.mt10px {
+    margin-top: 10px;
+}
+
+.containerheader {
+    display: flex;
+    /* flex-direction: row; */
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    background-color: antiquewhite;
+}
+
+.skillsheader {
+    width: 27%;
+    height: 200px;
+    padding: 10px;
+    margin: 20px;
+}
+
+.button {
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.button1 {
+    background-color: #4CAF50;
+}
+
+
+/* Green */
+
+.mt10px {
+    margin-top: 10px;
+}
+
+.button {
+    justify-content: flex-end;
+    padding-right: 11px;
+}
+
+.width30 {
+    width: 30%
+}
+
+.containerrow {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    /* margin-top: 50px; */
+}
+
+.center {
+    text-align: center !important;
+    font-family: "Poppins", sans-serif;
+}
+
+.skills {
+    color: #777777;
+    font-family: "Poppins", serif;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.625em;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.skill-bars {
+    /* padding: 25px 30px; */
+    width: 40%;
+    /* background: #fff; */
+    /* box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2); */
+    border-radius: 10px;
+    margin: auto;
+}
+
+.skill-bars .bar {
+    margin: 20px 0;
+}
+
+.skill-bars .bar:first-child {
+    margin-top: 0px;
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    /* justify-content: flex-end; */
+    margin-top: 15px;
+}
+
+.focontent {
+    text-align: end;
+}
+
+.confirstn {
+    display: flex;
+    flex-direction: column;
+    margin-right: 10px;
+}
+
+.skill-bars .bar .info {
+    margin-bottom: 5px;
+}
+
+.wd {
+    width: 50%;
+}
+
+.skill-bars .bar .info span {
+    font-weight: 500;
+    font-size: 17px;
+    opacity: 0;
+    animation: showText 0.5s 1s linear forwards;
+}
+
+@keyframes showText {
+    100% {
+        opacity: 1;
+    }
+}
+
+.skill-bars .bar .progress-line {
+    height: 10px;
+    width: 100%;
+    background: #f0f0f0;
+    position: relative;
+    transform: scaleX(0);
+    transform-origin: left;
+    border-radius: 10px;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05), 0 1px rgba(255, 255, 255, 0.8);
+    animation: animate 1s cubic-bezier(1, 0, 0.5, 1) forwards;
+}
+
+@keyframes animate {
+    100% {
+        transform: scaleX(1);
+    }
+}
+
+.bar .progress-line span {
+    height: 100%;
+    position: absolute;
+    border-radius: 10px;
+    transform: scaleX(0);
+    transform-origin: left;
+    background: #6665ee;
+    animation: animate 1s 1s cubic-bezier(1, 0, 0.5, 1) forwards;
+}
+
+.bar .progress-line.html span {
+    width: 90%;
+}
+
+.bar .progress-line.css span {
+    width: 60%;
+}
+
+.bar .progress-line.jquery span {
+    width: 85%;
+}
+
+.bar .progress-line.python span {
+    width: 50%;
+}
+
+.bar .progress-line.mysql span {
+    width: 75%;
+}
+
+.progress-line span::before {
+    position: absolute;
+    content: "";
+    top: -10px;
+    right: 0;
+    height: 0;
+    width: 0;
+    border: 7px solid transparent;
+    border-bottom-width: 0px;
+    border-right-width: 0px;
+    border-top-color: #000;
+    opacity: 0;
+    animation: showText2 0.5s 1.5s linear forwards;
+}
+
+.progress-line span::after {
+    position: absolute;
+    top: -28px;
+    right: 0;
+    font-weight: 500;
+    background: #000;
+    color: #fff;
+    padding: 1px 8px;
+    font-size: 12px;
+    border-radius: 3px;
+    opacity: 0;
+    animation: showText2 0.5s 1.5s linear forwards;
+}
+
+@keyframes showText2 {
+    100% {
+        opacity: 1;
+    }
+}
+
+.progress-line.html span::after {
+    content: "90%";
+}
+
+.progress-line.css span::after {
+    content: "60%";
+}
+
+.progress-line.jquery span::after {
+    content: "85%";
+}
+
+.progress-line.python span::after {
+    content: "50%";
+}
+
+.progress-line.mysql span::after {
+    content: "75%";
+}
