@@ -14,7 +14,6 @@ def SignupUserIngestion(form):
     cursor = connection.cursor()
 
 
-    # username = form['username']
     firstname = form['firstname']
     secondname = form['secondname']
     email = form['email']
@@ -31,7 +30,6 @@ def SignupUserIngestion(form):
         cursor.execute(user_insert_query,(firstname,secondname,email,password,role,phone,grade))
         connection.commit()
         return  1
-        # "Account Created succesfully {firstname} login here"
     else:
         return 0
 

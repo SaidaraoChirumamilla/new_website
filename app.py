@@ -1,15 +1,13 @@
-from flask import Flask, request
-from flask import render_template
-from Forms import SignupForm
-from Forms import LoginForm
+from flask import Flask, request, render_template
+
+from Forms import SignupForm, LoginForm
+
 from DataValidations import loginValidation
 from Data_Ingestion import SignupUserIngestion
-from flask.helpers import flash, url_for
-from flask.wrappers import Request
-# from signup import Signup
+from flask.helpers import flash
+
 from werkzeug.utils import redirect
 
-import psycopg2
 
 
 
@@ -19,15 +17,6 @@ import psycopg2
 app = Flask(__name__)
 app.secret_key = 'asrtarstaursdlarsn'
 
-connection = psycopg2.connect(user="teja",
-                                  password="Saidarao3!",
-                                  host="127.0.0.1",
-                                  port="5432",
-                                  database="iamstem")
-
-
-   # Create a cursor to perform database operations
-cursor = connection.cursor()
 
 @app.route('/home')
 def home():

@@ -1,4 +1,3 @@
-import platform
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, SelectField, SelectMultipleField, widgets
 from wtforms.validators import DataRequired, Length, Email, EqualTo
@@ -12,15 +11,9 @@ class MultiCheckboxField(SelectMultipleField):
 
 class SignupForm(FlaskForm):
 
-        
-
     role_drop_down = ["None","Student","Instructor","Admin"]
 
     gradeMenu = ['11','22', '33', '44']
-
-
-    # username = StringField('User name',
-                        #    validators=[DataRequired(), Length(min=2, max=20)])
 
     firstname = StringField('First name',
                            validators=[DataRequired(), Length(min=2, max=20)])
