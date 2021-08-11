@@ -66,12 +66,23 @@ def login():
 
     if request.method == "POST" :
 
-
         if loginform.validate_on_submit():
 
-            loginValidation(request.form)
+            message,loginuser = loginValidation(request.form)
 
-            return redirect('/dashboard')
+            if message == 1:
+
+                print(loginuser)
+
+                flash(f'successfully logged in')
+
+                return redirect('/dashboard')
+
+            else:
+                flash(f'please check the email and password')
+
+                return redirect("/login")
+
 
     return render_template('Login.html',loginpage= loginpage, loginform = loginform)
 
@@ -84,7 +95,7 @@ def dashboard():
 
     dashboard = "true"
 
-    return "<h1>welcome<h1>"
+    return render_template('dashboard.html')
 
 
 

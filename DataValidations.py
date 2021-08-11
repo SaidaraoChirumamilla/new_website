@@ -1,10 +1,13 @@
 import psycopg2
+# import sys
+from psycopg2.extras import RealDictCursor
 
 connection = psycopg2.connect(user="teja",
                                   password="Saidarao3!",
                                   host="127.0.0.1",
                                   port="5432",
-                                  database="iamstem")
+                                  database="iamstem",
+                                  cursor_factory=RealDictCursor)
 
 
    # Create a cursor to perform database operations
@@ -12,8 +15,18 @@ cursor = connection.cursor()
 
 def loginValidation(form):
 
-    cursor.execute("SELECT FROM users where email = %s",(form['email'],))
+    cursor.execute("SELECT * FROM users where email = %s",(form['email'],))
 
     loginuser = cursor.fetchall()
 
-    print(loginuser)
+
+    if len(loginuser) ==0:
+        return 0,loginuser
+    elif form['email'] == loginuser[0]['email'] and form['password'] == loginuser[0]['pass']:
+
+        return 1,loginuser
+
+    else :
+        return 0,loginuser
+        
+
