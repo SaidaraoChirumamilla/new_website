@@ -4,6 +4,7 @@
 <head>
     <link href="{{ url_for('static', filename='styles/style.css' ) }}" rel="stylesheet" type="text/css" />
     <!-- Bootstrap CSS -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
@@ -11,7 +12,17 @@
 
 <body style="background-color: aliceblue;">
 
-
+    <div>
+        {% with messages = get_flashed_messages(with_categories=true) %} {% if messages %} {% for category, message in messages %}
+        <div class="mt-4 ml-4 mr-4">
+            <div class="p-3 mb-2 bg-danger ">
+                {{ message }}
+                
+                <a href='/login'><i class="material-icons float-md-right" style="font-size:25px">close</i></a>
+            </div>
+            {% endfor %} {% endif %} {% endwith %} {% block content %}{% endblock %}
+        </div>
+    </div>
     {% include "nav.html" %}
     <div class="container mt-2 mb-4 acc">
         <h4>New Member </h4>

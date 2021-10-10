@@ -23,11 +23,12 @@ app.secret_key = 'asrtarstaursdlarsn'
 def home():
 
     print(session)
+    homepage = True
 
     if session['loggedin'] == True:
-        return render_template('dashboard.html',loggedin = currentuser['loggedin'],role = role)
-    homepage = True
-    return render_template('dashboard.html',homepage=homepage)
+        return render_template('home.html',homepage=homepage)
+    
+    return render_template('home.html',homepage=homepage)
 
 
 
@@ -63,75 +64,51 @@ def signup():
 
 @app.route('/login',methods=["GET", "POST"])
 def login():
-
     loginpage = "true"
-
     loginform = LoginForm()
 
-    print(loginform)
-
     if request.method == "POST" :
-
         if loginform.validate_on_submit():
-
             message,loginuser = loginValidation(request.form)
-
             if message == 1:
-
                 session['id'] = loginuser['id']
                 session['role'] = loginuser['rol']
                 session['loggedin'] = True
-                print(session)
-
                 flash(f'successfully logged in')
-
-                return redirect('/dashboard')
-
+                return redirect('/')
             else:
                 flash(f'please check the email and password')
-
                 return redirect("/login")
-
-    print(loginform)
-
-
     return render_template('Login.html',loginpage= loginpage, loginform = loginform)
 
 
 
 
-@app.route('/dashboard',methods=["GET", "POST"])
-def dashboard():
+# @app.route('/dashboard',methods=["GET", "POST"])
+# def dashboard():
 
-    dashboard = "true"
-    print(currentuser)
-    if currentuser['rol'] == 'Student':
-        global role
-        role = 'Student'
-    else :
-        role = "instructor"
+#     dashboard = "true"
+#     if currentuser['rol'] == 'Student':
+#         global role
+#         role = 'Student'
+#     else :
+#         role = "instructor"
 
-    return render_template('dashboard.html',loggedin = currentuser['loggedin'],role = role)
+#     return render_template('dashboard.html',loggedin = currentuser['loggedin'],role = role)
 
 
 @app.route('/instructor',methods=["GET", "POST"])
 def instructor():
     Instructer_page = True
-    print(currentuser)
-    if currentuser['rol'] == 'Student':
-        global role
-        role = 'Student'
-    else :
-        role = "instructor"
+    
 
-    return render_template('Instructor.html',loggedin = currentuser['loggedin'],role = role)
+    return render_template('Instructor.html',Instructer_page=Instructer_page)
 
 
 
 @app.route('/logout',methods=["GET", "POST"])
 def logout():
-    if currentuser is not None :
-        currentuser['loggedin'] = False
+    session['loggedin'] = False
     return redirect("/login")
 
 

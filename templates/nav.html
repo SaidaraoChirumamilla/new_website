@@ -8,14 +8,14 @@
 <div class="topnav mt-2">
 
     {% if homepage %}
-    <a class="active " href="/home">Home</a> {% else %}
+    <a class="active " href="/">Home</a> {% else %}
     <a href="/">Home</a> {% endif %}
 
-    {% if role == "Student" and loggedin== True %}
+    {% if session['role'] == "Student" and session['loggedin']== True %}
     <a  href="/#">student Info</a>  
 
 
-    {% elif role == "instructor" and loggedin== True %}
+    {% elif session['role'] == "Instructor" and session['loggedin']== True %}
     {%if Instructer_page  %}
     <a  class = active href="/instructor">Instructor
     </a>
@@ -34,7 +34,7 @@
 
 
     <div style="float: right; ">
-        {% if loggedin %}
+        {% if session['loggedin'] %}
         <a href="/logout">Log out</a>
          {%else%} 
          {% if signuppage %}<a class="active " href="/signup">Signup</a> 
