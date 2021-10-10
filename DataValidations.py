@@ -21,12 +21,12 @@ def loginValidation(form):
 
 
     if len(loginuser) ==0:
-        return 0,loginuser
+        return 0,loginuser[0]
     elif form['email'] == loginuser[0]['email'] and form['password'] == loginuser[0]['pass']:
 
-        return 1,loginuser
+        return 1,loginuser[0]
 
     else :
-        return 0,loginuser
+        return 0,loginuser[0]
         
 

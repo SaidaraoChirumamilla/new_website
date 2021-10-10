@@ -1,4 +1,5 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, session
+from flask_session import Session
 
 from Forms import SignupForm, LoginForm
 
@@ -10,20 +11,23 @@ from werkzeug.utils import redirect
 
 
 
-
-
-
-
 app = Flask(__name__)
+app.config["SESSION_PERMANENT"] = False
+app.config["SESSION_TYPE"] = "filesystem"
+Session(app)
 app.secret_key = 'asrtarstaursdlarsn'
 
 
-@app.route('/home')
+
+@app.route('/')
 def home():
 
-    homepage = True
+    print(session)
 
-    return render_template('home.html',homepage=homepage)
+    if session['loggedin'] == True:
+        return render_template('dashboard.html',loggedin = currentuser['loggedin'],role = role)
+    homepage = True
+    return render_template('dashboard.html',homepage=homepage)
 
 
 
@@ -64,6 +68,8 @@ def login():
 
     loginform = LoginForm()
 
+    print(loginform)
+
     if request.method == "POST" :
 
         if loginform.validate_on_submit():
@@ -72,7 +78,10 @@ def login():
 
             if message == 1:
 
-                print(loginuser)
+                session['id'] = loginuser['id']
+                session['role'] = loginuser['rol']
+                session['loggedin'] = True
+                print(session)
 
                 flash(f'successfully logged in')
 
@@ -83,9 +92,10 @@ def login():
 
                 return redirect("/login")
 
+    print(loginform)
+
 
     return render_template('Login.html',loginpage= loginpage, loginform = loginform)
-
 
 
 
@@ -94,8 +104,35 @@ def login():
 def dashboard():
 
     dashboard = "true"
+    print(currentuser)
+    if currentuser['rol'] == 'Student':
+        global role
+        role = 'Student'
+    else :
+        role = "instructor"
 
-    return render_template('dashboard.html')
+    return render_template('dashboard.html',loggedin = currentuser['loggedin'],role = role)
+
+
+@app.route('/instructor',methods=["GET", "POST"])
+def instructor():
+    Instructer_page = True
+    print(currentuser)
+    if currentuser['rol'] == 'Student':
+        global role
+        role = 'Student'
+    else :
+        role = "instructor"
+
+    return render_template('Instructor.html',loggedin = currentuser['loggedin'],role = role)
+
+
+
+@app.route('/logout',methods=["GET", "POST"])
+def logout():
+    if currentuser is not None :
+        currentuser['loggedin'] = False
+    return redirect("/login")
 
 
 
