@@ -19,16 +19,13 @@
         <div class="mt-4 ml-4 mr-4">
             <div class="p-3 mb-2 bg-success ">
                 {{ message }}
-                {% if not session['loggedin'] %}
-                <a href="/login">login now</a> {%endif%}
                 <a href='/'><i class="material-icons float-md-right" style="font-size:25px">close</i></a>
             </div>
             {% endfor %} {% endif %} {% endwith %} {% block content %}{% endblock %}
         </div>
     </div>
-
-
     {% include "nav.html" %}
+
 </body>
 
 </html>

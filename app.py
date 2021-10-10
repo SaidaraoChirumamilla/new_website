@@ -1,4 +1,5 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, session
+from flask_session import Session
 
 from Forms import SignupForm, LoginForm
 
@@ -10,19 +11,23 @@ from werkzeug.utils import redirect
 
 
 
-
-
-
-
 app = Flask(__name__)
+app.config["SESSION_PERMANENT"] = False
+app.config["SESSION_TYPE"] = "filesystem"
+Session(app)
 app.secret_key = 'asrtarstaursdlarsn'
 
 
-@app.route('/home')
+
+@app.route('/')
 def home():
 
+    print(session)
     homepage = True
 
+    if session['loggedin'] == True:
+        return render_template('home.html',homepage=homepage)
+    
     return render_template('home.html',homepage=homepage)
 
 
@@ -59,32 +64,52 @@ def signup():
 
 @app.route('/login',methods=["GET", "POST"])
 def login():
-
     loginpage = "true"
-
     loginform = LoginForm()
 
     if request.method == "POST" :
-
-
         if loginform.validate_on_submit():
-
-            loginValidation(request.form)
-
-            return redirect('/dashboard')
-
+            message,loginuser = loginValidation(request.form)
+            if message == 1:
+                session['id'] = loginuser['id']
+                session['role'] = loginuser['rol']
+                session['loggedin'] = True
+                flash(f'successfully logged in')
+                return redirect('/')
+            else:
+                flash(f'please check the email and password')
+                return redirect("/login")
     return render_template('Login.html',loginpage= loginpage, loginform = loginform)
 
 
 
 
+# @app.route('/dashboard',methods=["GET", "POST"])
+# def dashboard():
 
-@app.route('/dashboard',methods=["GET", "POST"])
-def dashboard():
+#     dashboard = "true"
+#     if currentuser['rol'] == 'Student':
+#         global role
+#         role = 'Student'
+#     else :
+#         role = "instructor"
 
-    dashboard = "true"
+#     return render_template('dashboard.html',loggedin = currentuser['loggedin'],role = role)
 
-    return "<h1>welcome<h1>"
+
+@app.route('/instructor',methods=["GET", "POST"])
+def instructor():
+    Instructer_page = True
+    
+
+    return render_template('Instructor.html',Instructer_page=Instructer_page)
+
+
+
+@app.route('/logout',methods=["GET", "POST"])
+def logout():
+    session['loggedin'] = False
+    return redirect("/login")
 
 
 
