@@ -84,18 +84,6 @@ def login():
 
 
 
-# @app.route('/dashboard',methods=["GET", "POST"])
-# def dashboard():
-
-#     dashboard = "true"
-#     if currentuser['rol'] == 'Student':
-#         global role
-#         role = 'Student'
-#     else :
-#         role = "instructor"
-
-#     return render_template('dashboard.html',loggedin = currentuser['loggedin'],role = role)
-
 
 @app.route('/instructor',methods=["GET", "POST"])
 def instructor():
