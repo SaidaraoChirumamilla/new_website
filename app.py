@@ -1,10 +1,8 @@
 from flask import Flask, request, render_template, session
 from flask_session import Session
 
-from Forms import SignupForm, LoginForm
+from Python_templates import Forms,Data_Ingestion,DataValidations
 
-from DataValidations import loginValidation
-from Data_Ingestion import SignupUserIngestion
 from flask.helpers import flash
 
 from werkzeug.utils import redirect
@@ -38,13 +36,13 @@ def signup():
 
     signuppage = "true"
 
-    signupform = SignupForm()
+    signupform = Forms.SignupForm()
 
     if request.method == "POST" :
 
         if signupform.validate_on_submit():
 
-            message = SignupUserIngestion(request.form)
+            message = Data_Ingestion.SignupUserIngestion(request.form)
 
             if message == 1:
 
@@ -65,11 +63,11 @@ def signup():
 @app.route('/login',methods=["GET", "POST"])
 def login():
     loginpage = "true"
-    loginform = LoginForm()
+    loginform = Forms.LoginForm()
 
     if request.method == "POST" :
         if loginform.validate_on_submit():
-            message,loginuser = loginValidation(request.form)
+            message,loginuser = DataValidations.loginValidation(request.form)
             if message == 1:
                 session['id'] = loginuser['id']
                 session['role'] = loginuser['rol']
