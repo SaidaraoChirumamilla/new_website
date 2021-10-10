@@ -69,9 +69,13 @@ def login():
         if loginform.validate_on_submit():
             message,loginuser = DataValidations.loginValidation(request.form)
             if message == 1:
+                print(loginuser)
                 session['id'] = loginuser['id']
                 session['role'] = loginuser['rol']
                 session['loggedin'] = True
+                session['firstname'] = loginuser['firstname']
+                session['lastname'] =  loginuser['lastname']
+                session['email'] = loginuser['email']
                 flash(f'successfully logged in')
                 return redirect('/')
             else:
@@ -96,6 +100,11 @@ def instructor():
 def logout():
     session['loggedin'] = False
     return redirect("/login")
+
+@app.route('/profile',methods=["GET", "POST"])
+def profile():
+    
+    return render_template('profile.html')
 
 
 

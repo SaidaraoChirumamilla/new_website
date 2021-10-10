@@ -4,11 +4,13 @@
 
     </a>
     <h1 class="marginauto w-50">I AM STEM</h1>
-    <div style="width: 15%;">
-        <a href="#">
-        <img  class="rounded-circle z-depth-2"   width="50" height="50" alt="Profile">
+    {%if session['loggedin'] %}
+    <div  style="width: 15%;">
+        <a href="/profile">
+        <img  class="rounded-circle z-depth-2" src="{{ url_for('static', filename='Passport_Photo.jpg') }}  width="50" height="50" alt="Profile">
     </a>
     </div>
+    {% endif %}
 </div>
 <div class="topnav mt-2">
 
